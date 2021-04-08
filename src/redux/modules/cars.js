@@ -5,18 +5,13 @@ const moduleName = "cars";
 const GET_CARS = `${moduleName}/GET_CARS`;
 const GET_ACTIVE = `${moduleName}/GET_ACTIVE`;
 const GET_PASSED = `${moduleName}/GET_PASSED`;
-const CREATE_APPLICATION = `${moduleName}/CREATE_APPLICATION`
-const ADD_IN_PASSED = `${moduleName}/ADD_IN_PASSED`
-
-// const CREATE_POST = `${moduleName}/CREATE_POST`;
+const CREATE_APPLICATION = `${moduleName}/CREATE_APPLICATION`;
+const ADD_IN_PASSED = `${moduleName}/ADD_IN_PASSED`;
 
 const defaultState = {
   cars: [],
 };
 
-/* 
-  { type: GET_POSTS, payload: {...} }
-*/
 export default (state = defaultState, { type, payload }) => {
   switch (type) {
     case GET_CARS:
@@ -29,8 +24,6 @@ export default (state = defaultState, { type, payload }) => {
       return { ...state, cars: [...state.cars, payload] };
     case ADD_IN_PASSED:
       return { ...state, cars: state.cars.filter(item => item.id !== payload.id)};
-    // case CREATE_POST:
-    //   return { ...state, posts: [...state.posts, payload] };
     default:
       return state;
   }
